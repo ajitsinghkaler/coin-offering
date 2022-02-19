@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/Context.sol";
@@ -45,21 +46,21 @@ contract Crowdsale is Context, ReentrancyGuard {
     event TokensPurchased(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount);
 
     /**
-     * @param rate Number of token units a buyer gets per wei
+     * @param Vrate Number of token units a buyer gets per wei
      * @dev The rate is the conversion between wei and the smallest and indivisible
      * token unit. So, if you are using a rate of 1 with a ERC20Detailed token
      * with 3 decimals called TOK, 1 wei will give you 1 unit, or 0.001 TOK.
-     * @param wallet Address where collected funds will be forwarded to
-     * @param token Address of the token being sold
+     * @param Vwallet Address where collected funds will be forwarded to
+     * @param Vtoken Address of the token being sold
      */
-    constructor (uint256 rate, address payable wallet, IERC20 token) public {
-        require(rate > 0, "Crowdsale: rate is 0");
-        require(wallet != address(0), "Crowdsale: wallet is the zero address");
-        require(address(token) != address(0), "Crowdsale: token is the zero address");
+    constructor (uint256 Vrate, address payable Vwallet, IERC20 Vtoken){
+        require(Vrate > 0, "Crowdsale: rate is 0");
+        require(Vwallet != address(0), "Crowdsale: wallet is the zero address");
+        require(address(Vtoken) != address(0), "Crowdsale: token is the zero address");
 
-        _rate = rate;
-        _wallet = wallet;
-        _token = token;
+        _rate = Vrate;
+        _wallet = Vwallet;
+        _token = Vtoken;
     }
 
     /**
